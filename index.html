@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>RunX-Online C</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🧭 Header -->
+<header>
+  <div class="logo">
+      <img src="./assets/runxlogo.jpg" alt="CodeZone Logo">
+      <h1>RunX</h1>
+    </a>
+  </div>
+
+  <div class="header-controls">
+
+    <!-- 🏠 Home / About Navigation -->
+    <nav class="top-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="pages/about.html" class="nav-link">About</a>
+    </nav>
+
+    <!-- 🌐 Language Selector -->
+    <select id="languageSelect">
+      <option value="c">C</option>
+      <option value="cpp">C++</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+      <option value="js">JavaScript</option>
+      <option value="php">PHP</option>
+      <option value="ruby">Ruby</option>
+
+    </select>
+
+    <!-- 🕓 Run History -->
+    <div class="history-container">
+      <button id="historyBtn" title="View Run History">🕓</button>
+      <div id="historyDropdown" class="dropdown hidden">
+        <h4>Last 5 Runs</h4>
+        <ul id="historyList"></ul>
+      </div>
+    </div>
+
+    <!-- 👤 Profile -->
+    <div class="profile-container">
+      <img src="assets/user.png" alt="User" id="profileIcon">
+      <div id="profileDropdown" class="dropdown hidden">
+        <ul>
+          <li>My Codes</li>
+          <li>Settings</li>
+          <li>Logout</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 🌗 Theme Toggle -->
+    <button id="themeToggle" title="Toggle Theme">
+      <i class="fas fa-moon"></i>
+    </button>
+
+  </div>
+</header>
+
+
+
+
+  <!-- 🧩 Main Layout -->
+  <main class="main-layout">
+
+    <!-- 📚 Sidebar -->
+   <!-- 📚 Sidebar -->
+<aside class="sidebar">
+  <ul>
+    <li data-lang="c"><img src="assets/icons/c.svg" alt="C" title="C"></li>
+    <li data-lang="cpp"><img src="assets/icons/cpp.svg" alt="C++" title="C++"></li>
+    <li data-lang="python"><img src="assets/icons/python.svg" alt="Python" title="Python"></li>
+    <li data-lang="java"><img src="assets/icons/java.svg" alt="Java" title="Java"></li>
+    <li data-lang="js"><img src="assets/icons/javascript.svg" alt="JavaScript" title="JavaScript"></li>
+    <li data-lang="php"><img src="assets/icons/php.svg" alt="PHP" title="PHP"></li>
+    <li data-lang="ruby"><img src="assets/icons/ruby.svg" alt="Ruby" title="Ruby"></li>
+
+  </ul>
+</aside>
+
+
+    <!-- 🧑‍💻 Compiler Section -->
+    <section class="compiler-container">
+      <div class="input-section">
+        <h2 id="lang-title">Language: C</h2>
+        <textarea id="codeArea" placeholder="Write your code here..."></textarea>
+
+        <div class="button-group">
+          <button id="runBtn">Run Code</button>
+          <button id="refreshBtn">Refresh</button>
+        </div>
+      </div>
+
+      <div class="output-section">
+        <h2>Output</h2>
+        <pre id="outputBox">Your output will appear here...</pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 🦶 Footer -->
+  <footer>
+    <p>© 2025 RunX | Created by Upendra Singh</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

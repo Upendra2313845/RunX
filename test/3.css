@@ -1,0 +1,171 @@
+/* 🌈 About Page Styles */
+.about-container {
+  padding: 50px 80px 80px;
+  background: linear-gradient(145deg, #0d1117, #1b2230);
+  color: #e6edf3;
+  animation: fadeIn 0.8s ease;
+  min-height: calc(100vh - 80px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about-header h1 {
+  font-size: 38px;
+  color: #58a6ff;
+}
+.about-header .highlight {
+  color: #00c3ff;
+}
+.about-header p {
+  font-size: 17px;
+  color: #c9d1d9;
+  max-width: 700px;
+  margin: 10px auto 0;
+  line-height: 1.6;
+}
+
+/* Cards Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: rgba(22, 27, 34, 0.9);
+  border: 1px solid rgba(88, 166, 255, 0.1);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(88,166,255,0.25);
+}
+.card h2 {
+  font-size: 20px;
+  color: #58a6ff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card p, .card ul {
+  font-size: 15px;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+.card ul li {
+  margin-bottom: 8px;
+  list-style-type: "⚙️ ";
+}
+
+/* 👨‍💻 Developer Section */
+.developer-info .dev-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.developer-info .dev-profile img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #58a6ff;
+  box-shadow: 0 0 20px rgba(88,166,255,0.4);
+  object-fit: cover;
+}
+.developer-info h3 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+}
+.developer-info .bio {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #c3d4ef;
+  line-height: 1.7;
+}
+
+/* 🌐 Social Links */
+.social-links {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 15px;
+}
+.social-links a {
+  font-size: 22px;
+  color: #58a6ff;
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: #79c0ff;
+  transform: scale(1.25);
+}
+
+/* 🧠 Quote */
+.quote {
+  text-align: center;
+  font-style: italic;
+  color: #9fbbe7;
+  margin-top: 50px;
+  font-size: 17px;
+}
+
+/* 🌤 Light Theme Fix */
+body.light .about-container {
+  background: linear-gradient(145deg, #e3efff, #f9fbff);
+  color: #0a1f33;
+}
+body.light .card {
+  background: #ffffff;
+  border-color: #b4c9e6;
+  box-shadow: 0 5px 18px rgba(0, 64, 128, 0.08);
+}
+body.light .card h2 {
+  color: #003a80;
+}
+body.light .card p, 
+body.light .card ul {
+  color: #1a2b45;
+}
+body.light .about-header h1 {
+  color: #003366;
+}
+body.light .about-header p {
+  color: #253a52;
+}
+body.light .social-links a {
+  color: #0047b3;
+}
+body.light .social-links a:hover {
+  color: #002d73;
+  transform: scale(1.25);
+}
+body.light .quote {
+  color: #003366;
+  opacity: 0.85;
+}
+
+/* 🦶 Footer */
+footer {
+  background: #161b22;
+  color: #e6edf3;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+body.light footer {
+  background: #c9defa;
+  color: #001a33;
+  border-top: 1px solid #aac3e3;
+}

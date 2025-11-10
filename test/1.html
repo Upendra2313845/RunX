@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — RunX / CodeZone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* 🌌 Background Gradient — Dark Blue + Purple Dev Vibe */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at 25% 25%, #111827 0%, #0a0f1f 45%, #040714 100%);
+      color: #e6edf3;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ✨ Floating Gradient Blobs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.55;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+    .orb.one { width: 320px; height: 320px; top: 5%; left: 5%; background: #2563eb; animation-delay: 0s; }
+    .orb.two { width: 380px; height: 380px; bottom: 5%; right: 10%; background: #9333ea; animation-delay: 2s; }
+    .orb.three { width: 280px; height: 280px; bottom: 20%; left: 30%; background: #00bcd4; animation-delay: 1s; }
+
+    @keyframes float {
+      0% { transform: translateY(0px) scale(1); opacity: 0.6; }
+      100% { transform: translateY(-25px) scale(1.05); opacity: 0.75; }
+    }
+
+    /* 🪟 Card — Slight Glow + Smooth Blur */
+    .card {
+      width: 380px;
+      background: rgba(13, 17, 23, 0.85);
+      border: 1px solid rgba(88,166,255,0.25);
+      border-radius: 16px;
+      padding: 34px;
+      box-shadow: 0 0 40px rgba(88,166,255,0.08), 0 0 80px rgba(147,51,234,0.05);
+      backdrop-filter: blur(14px);
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(88,166,255,0.15);
+    }
+
+    /* 🔖 Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 8px;
+      cursor: pointer;
+      border-radius: 8px;
+      background: transparent;
+      color: #9fbff7;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .tab.active {
+      background: rgba(88,166,255,0.18);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(88,166,255,0.15);
+      transform: scale(1.04);
+    }
+
+    /* 📝 Form */
+    label {
+      display: block;
+      font-size: 13px;
+      margin: 10px 0 6px;
+      color: #cfdff8;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #2b333b;
+      background: #0d1117;
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #58a6ff;
+      box-shadow: 0 0 10px rgba(88,166,255,0.25);
+    }
+
+    /* 🧠 Buttons */
+    .btn {
+      margin-top: 18px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+      transform: scale(1.02);
+    }
+
+    /* 💬 Info Text */
+    .muted {
+      font-size: 13px;
+      color: #9fbff7;
+      text-align: center;
+      margin-top: 16px;
+      opacity: 0.9;
+    }
+
+    /* 🌞 Light Theme */
+    body.light {
+      background: linear-gradient(135deg, #d4f1f4, #e8f0fe, #d7e3fc);
+      color: #07203a;
+    }
+    body.light .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #bcd0f2;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    }
+    body.light .btn {
+      background: linear-gradient(135deg, #00bcd4, #2196f3);
+    }
+    body.light .btn:hover {
+      background: linear-gradient(135deg, #2196f3, #1976d2);
+    }
+    body.light .tab.active {
+      background: rgba(0, 102, 204, 0.12);
+      color: #002a55;
+    }
+
+    /* 🔄 Smooth Transition */
+    #formArea {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+</head>
+<h1><span style="color:#58a6ff;">Run</span><span style="color:#9333ea;">X</span></h1>
+
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <div class="card">
+    <div class="tabs">
+      <div id="loginTab" class="tab active"><i class="fas fa-right-to-bracket"></i> Login</div>
+      <div id="signupTab" class="tab"><i class="fas fa-user-plus"></i> Create Account</div>
+    </div>
+
+    <div id="formArea">
+      <!-- 🔐 Login Form -->
+      <div id="loginForm">
+        <label for="loginUser">Username</label>
+        <input id="loginUser" type="text" placeholder="Enter your username" />
+        <label for="loginPass">Password</label>
+        <input id="loginPass" type="password" placeholder="Enter your password" />
+        <button id="doLogin" class="btn">Login</button>
+      </div>
+
+      <!-- 🆕 Signup Form -->
+      <div id="signupForm" style="display:none;">
+        <label for="signupUser">Username</label>
+        <input id="signupUser" type="text" placeholder="Create a username" />
+        <label for="signupPass">Password</label>
+        <input id="signupPass" type="password" placeholder="Create a password" />
+        <button id="doSignup" class="btn">Create Account</button>
+      </div>
+
+      <!-- <p class="muted">
+        By continuing, you agree to our demo terms.<br>
+        This system uses <strong>client-side localStorage</strong>.
+      </p> -->
+    </div>
+  </div>
+
+  <!-- ⚙️ Scripts -->
+  <script src="auth.js"></script>
+  <script>
+    const loginTab = document.getElementById('loginTab');
+    const signupTab = document.getElementById('signupTab');
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const formArea = document.getElementById('formArea');
+
+    function switchTab(tab) {
+      formArea.style.opacity = 0;
+      formArea.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        if (tab === 'login') {
+          loginTab.classList.add('active'); signupTab.classList.remove('active');
+          loginForm.style.display = 'block'; signupForm.style.display = 'none';
+        } else {
+          signupTab.classList.add('active'); loginTab.classList.remove('active');
+          signupForm.style.display = 'block'; loginForm.style.display = 'none';
+        }
+        formArea.style.opacity = 1;
+        formArea.style.transform = 'translateY(0px)';
+      }, 250);
+    }
+
+    loginTab.addEventListener('click', () => switchTab('login'));
+    signupTab.addEventListener('click', () => switchTab('signup'));
+
+    document.getElementById('doSignup').addEventListener('click', () => {
+      const u = document.getElementById('signupUser').value.trim();
+      const p = document.getElementById('signupPass').value;
+      registerUser(u, p);
+    });
+
+    document.getElementById('doLogin').addEventListener('click', () => {
+      const u = document.getElementById('loginUser').value.trim();
+      const p = document.getElementById('loginPass').value;
+      loginUser(u, p);
+    });
+
+    // 🌗 Theme Apply
+    (function applySavedTheme() {
+      const t = localStorage.getItem('theme') || 'dark';
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(t);
+    })();
+  </script>
+</body>
+</html>
