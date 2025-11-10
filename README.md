@@ -100,13 +100,14 @@ node backend/server.js
 ## 🖼️ Project Preview
 
 ### 🔐 Login Page
-![Login Page](assets/runx-login.png)
+![Login Page](https://github.com/Upendra2313845/RunX/blob/main/assets/runx-login.png?raw=true)
 
 ### 💻 Compiler Page
-![Compiler Page](assets/runx-compiler.png)
+![Compiler Page](https://github.com/Upendra2313845/RunX/blob/main/assets/runx-compiler.png?raw=true)
 
 ### ℹ️ About Page
-![About Page](assets/runx-about.png)
+![About Page](https://github.com/Upendra2313845/RunX/blob/main/assets/runx-about.png?raw=true)
+
 
 
 
