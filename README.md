@@ -97,7 +97,6 @@ npm install
 # 4️⃣ Start backend server
 node backend/server.js
 
-
 ## 🖼️ Project Preview
 
 ### 🔐 Login Page
@@ -108,5 +107,6 @@ node backend/server.js
 
 ### ℹ️ About Page
 ![About Page](assets/runx-about.png)
+
 
 
