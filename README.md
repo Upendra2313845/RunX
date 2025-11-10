@@ -100,7 +100,6 @@ node backend/server.js
 ## 🖼️ Project Preview
 
 
-### 🔐 Login Page
 ## 🖼️ Project Preview
 
 ### 🔐 Login Page
@@ -111,6 +110,7 @@ node backend/server.js
 
 ### ℹ️ About Page
 ![About Page](https://raw.githubusercontent.com/Upendra2313845/RunX/main/assets/runx-about.png)
+
 
 
 
