@@ -108,6 +108,23 @@ node backend/server.js
 ### ℹ️ About Page
 <img src="https://raw.githubusercontent.com/Upendra2313845/RunX/main/assets/runx-about.png" width="700">
 
+## 🧰 Tech Stack
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,nodejs,express" />
+
+</div>
+
+---
+
+### 🧩 Additional Tools Used
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=git,github,vscode,vercel,netlify" />
+
+</div>
 
 
 
