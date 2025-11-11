@@ -140,6 +140,38 @@ node backend/server.js
 
 
 
+---
+
+## 🌐 Live Demo
+🎯 Check out the live version of RunX here (once hosted):  
+👉 [https://upendra-runx.netlify.app](https://upendra-runx.netlify.app)
+
+*(You can add your Netlify or Vercel link once you host the project.)*
+
+---
+
+## 👨‍💻 About the Developer
+
+Hey there! I'm **Upendra Singh**,  
+🎓 a B.Tech CSE student at Pranveer Singh Institute of Technology, Kanpur.  
+💡 I’m passionate about frontend design, web development and creating consistent, polished code experiences.
+
+### 🧰 Skills
+- Frontend: HTML | CSS | JavaScript  
+- Backend: Node.js | Express.js  
+- Tools: VS Code | Git | GitHub  
+- Interests: Competitive Coding | UI Design | Project Building
+
+### 📫 Connect with Me
+[![GitHub](https://img.shields.io/badge/GitHub-Upendra2313845-black?logo=github)](https://github.com/Upendra2313845)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Upendra%20Singh-blue?logo=linkedin)](https://linkedin.com)
+[![Email](https://img.shields.io/badge/Email-upendra@example.com-red?logo=gmail)](mailto:upendra@example.com)
+
+---
+
+⭐ If you like this project, don’t forget to star the repo and share it 🚀
+
+
 
 
 
