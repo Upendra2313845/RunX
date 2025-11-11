@@ -98,7 +98,7 @@ npm install
 node backend/server.js
 
 ## 🖼️ Project Preview
-
+```
 ### 🔐 Login Page
 <img src="https://raw.githubusercontent.com/Upendra2313845/RunX/main/assets/runx-login.png" width="700">
 
