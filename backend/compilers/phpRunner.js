@@ -1,14 +1,20 @@
-// backend/compilers/phpRunner.js
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
 
-export function runPHP(code, callback) {
-  const tempPath = path.join("backend", "compilers", "temp.php");
-  fs.writeFileSync(tempPath, code);
+export const runPHP = (code, callback) => {
+  try {
+    const tempDir = path.join(process.cwd(), "backend", "temp");
+    if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
-  exec(`php ${tempPath}`, (error, stdout, stderr) => {
-    if (error) return callback(stderr || error.message);
-    callback(stdout || "✅ PHP code executed successfully.");
-  });
-}
+    const filePath = path.join(tempDir, "code.php");
+    fs.writeFileSync(filePath, code);
+
+    exec(`php "${filePath}"`, (err, stdout, stderr) => {
+      if (err) return callback(stderr || err.message);
+      callback(stdout || "✅ PHP code executed successfully.");
+    });
+  } catch (err) {
+    callback(`❌ Error: ${err.message}`);
+  }
+};
