@@ -85,3 +85,21 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ RunX backend running on port ${PORT}`);
 });
+
+
+
+
+
+// ✅ Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ RunX backend running on port ${PORT}`);
+});
+
+// 🔁 Keep backend awake (ping every 14 minutes)
+import fetch from "node-fetch";
+setInterval(() => {
+  fetch("https://runx-backend.onrender.com").catch(() => {});
+}, 14 * 60 * 1000);
+
+

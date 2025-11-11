@@ -4,17 +4,17 @@
   "description": "RunX - Multi-language Online Compiler with Authentication",
   "type": "module",
   "main": "backend/server.js",
-"scripts": {
-  "start": "node backend/server.js",
-  "free": "npx kill-port 5000",
-  "dev": "npm run free && nodemon --exec \"node --no-warnings\" backend/server.js"
-},
-
+  "scripts": {
+    "start": "node backend/server.js",
+    "free": "npx kill-port 5000",
+    "dev": "npm run free && nodemon --exec \"node --no-warnings\" backend/server.js"
+  },
   "dependencies": {
     "body-parser": "^1.20.3",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
   },
   "keywords": [],
   "author": "Upendra Singh",
