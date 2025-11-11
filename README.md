@@ -145,12 +145,19 @@ node backend/server.js
 
 ---
 
+
+
 ## 🌍 Live Project Links
 
 🔹 **Frontend (Netlify)** → [https://superb-pie-91b00d.netlify.app](https://superb-pie-91b00d.netlify.app)  
-🔹 **Backend (Render)** → [https://runx-backend.onrender.com](https://runx-backend.onrender.com)
+🔹 **Backend (Render)** → [https://runx-backend.onrender.com](https://runx-backend.onrender.com)  
+🔹 **GitHub Repository** → [https://github.com/Upendra2313845/RunX](https://github.com/Upendra2313845/RunX)
 
-💡 *Note:* If the backend takes time to respond, it may be waking from Render’s free tier sleep mode.
+💡 *Note:* The backend might take 20–40 seconds to respond the first time because it’s hosted on Render’s free plan (it sleeps when idle).  
+Once active, your compiler will run instantly for all languages.
+
+
+
 
 ---
 
