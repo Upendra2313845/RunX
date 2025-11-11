@@ -56,6 +56,33 @@ It features a clean dark UI inspired by modern dev tools like VS Code — with g
 
 ---
 
+## 🧮 Supported Languages
+
+| Language | Status | Execution |
+|-----------|---------|------------|
+| 🟩 C | ✅ Supported | Via GCC compiler |
+| 🟦 C++ | ✅ Supported | Via G++ compiler |
+| 🐍 Python | ✅ Supported | Native Python |
+| ☕ Java | ⚠️ Not supported (Render doesn’t include JDK) |
+| 🟨 JavaScript | ✅ Supported | Client-side execution |
+| 🐘 PHP | ⚠️ Not supported in hosted version |
+| 💎 Ruby | ⚠️ Not supported in hosted version |
+
+---
+
+> ⚠️ **Note:**  
+> In the hosted version (Render backend),  
+> Java, PHP, and Ruby compilers are currently not available due to environment limitations.  
+> These languages run perfectly in local mode using `node backend/server.js`.
+
+---
+
+
+
+
+
+---
+
 ## 🧩 Tech Stack
 
 | Layer | Technologies |
