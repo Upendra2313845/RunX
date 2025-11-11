@@ -1,5 +1,17 @@
 # ⚡ RunX — Online Developer Compiler Platform
 
+<p align="center">
+
+![GitHub last commit](https://img.shields.io/github/last-commit/Upendra2313845/RunX?style=for-the-badge&color=brightgreen)
+![Repo Size](https://img.shields.io/github/repo-size/Upendra2313845/RunX?style=for-the-badge&color=blue)
+![Stars](https://img.shields.io/github/stars/Upendra2313845/RunX?style=for-the-badge&color=yellow)
+![Forks](https://img.shields.io/github/forks/Upendra2313845/RunX?style=for-the-badge&color=orange)
+
+</p>
+
+
+
+
 > A modern, developer-themed code execution platform built with **HTML, CSS, JavaScript, and Node.js**  
 > Designed and developed by **Upendra Singh**
 
