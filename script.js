@@ -337,7 +337,8 @@ echo "Hello Upendra Singh from PHP!\\n";
     });
   }
 
-  if (runBtn)
+  // ================== RUN / REFRESH / SAVE ==================
+if (runBtn)
   runBtn.addEventListener("click", async () => {
     const code = codeArea.value.trim();
     if (!code) {
@@ -361,6 +362,7 @@ echo "Hello Upendra Singh from PHP!\\n";
     localStorage.setItem("run_history", JSON.stringify(runHistory));
     updateHistoryUI();
 
+    // 🧠 Auto-save on Run (if enabled)
     if (localStorage.getItem("rz_auto_save") === "1") saveCurrentCode();
 
     if (currentLang === "js") {
@@ -397,6 +399,21 @@ echo "Hello Upendra Singh from PHP!\\n";
       }
     }
   });
+
+// 🔄 Refresh Button — clears code/output
+if (refreshBtn)
+  refreshBtn.addEventListener("click", () => {
+    codeArea.value = "";
+    outputBox.textContent = "Your output will appear here...";
+  });
+
+// 💾 Save Button — manual save (always available)
+const saveBtn = document.getElementById("saveBtn");
+if (saveBtn)
+  saveBtn.addEventListener("click", () => {
+    saveCurrentCode();
+  });
+
 
 
   if (refreshBtn)
