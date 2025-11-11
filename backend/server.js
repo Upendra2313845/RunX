@@ -55,8 +55,12 @@ app.post("/run/:lang", (req, res) => {
   }
 });
 
-// ✅ Start server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`✅ RunX backend running on http://localhost:${PORT}`);
+  console.log(`✅ RunX backend running on port ${PORT}`);
 });
+
+
+
+
+// npm run dev
