@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (path === "login.html") {
     document.body.classList.remove("light");
     document.body.classList.add("dark");
+
     const themeToggle = document.getElementById("themeToggle");
     if (themeToggle) themeToggle.style.display = "none";
     localStorage.setItem("theme", "dark");
@@ -153,7 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const item = arr2[idx];
         if (item) {
           document.getElementById("codeArea").value = item.code;
-          document.getElementById("lang-title").textContent = `Language: ${item.lang}`;
+          document.getElementById(
+            "lang-title"
+          ).textContent = `Language: ${item.lang}`;
           savedModal.classList.add("hidden");
           alert("✅ Code loaded into editor.");
         }
@@ -228,6 +231,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.id === "closeSavedBtn") savedModal.classList.add("hidden");
   });
 
+  const styleTag = document.createElement("style");
+  styleTag.innerHTML = `
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: none; }
+.modal:not(.hidden) { display: flex; align-items: center; justify-content: center; }
+.modal .modal-content { background: #161b22; padding: 20px; border-radius: 12px; color: #e6edf3; min-width: 320px; max-width: 400px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); }
+body.light .modal .modal-content { background: #eaf4ff; color: #07203a; }
+.btn { background: #238636; border: none; color: #fff; padding: 8px 14px; border-radius: 8px; cursor: pointer; transition: 0.2s ease; }
+.btn:hover { background: #2ea043; }`;
+  document.head.appendChild(styleTag);
+
   // ========== LANGUAGE + RUN ==========
   const sidebarIcons = document.querySelectorAll(".sidebar li");
   const langSelect = document.getElementById("languageSelect");
@@ -293,65 +306,98 @@ echo "Hello Upendra Singh from PHP!\\n";
   }
   loadLanguage(currentLang);
 
-  // ========== RUN CODE ==========
-  if (runBtn)
-    runBtn.addEventListener("click", async () => {
-      const code = codeArea.value.trim();
-      if (!code) {
-        outputBox.textContent = "Write code first";
-        return;
-      }
+  // ========== RUN HISTORY ==========
+  const historyBtn = document.getElementById("historyBtn");
+  const historyDropdown = document.getElementById("historyDropdown");
+  const historyList = document.getElementById("historyList");
 
-      // 🚫 Option 2 Fix — Block unsupported languages
-      if (currentLang === "php" || currentLang === "ruby") {
-        outputBox.textContent = "❌ PHP and Ruby are not supported in hosted version.";
-        return;
-      }
+  function updateHistoryUI() {
+    if (!historyList) return;
+    if (runHistory.length === 0) {
+      historyList.innerHTML = "<li>No runs yet.</li>";
+      return;
+    }
+    historyList.innerHTML = runHistory
+      .map(
+        (item) =>
+          `<li><b>[${item.lang.toUpperCase()}]</b> ${item.preview}<br><small style="color:gray">${item.time}</small></li>`
+      )
+      .join("");
+  }
 
-      const preview = code.split("\n")[0].slice(0, 40) || "(no title)";
-      runHistory.unshift({
-        lang: currentLang,
-        preview,
-        time: new Date().toLocaleTimeString(),
-      });
-      if (runHistory.length > 5) runHistory.length = 5;
-      localStorage.setItem("run_history", JSON.stringify(runHistory));
-
-      if (localStorage.getItem("rz_auto_save") === "1") saveCurrentCode();
-
-      if (currentLang === "js") {
-        try {
-          const logs = [];
-          const orig = console.log;
-          console.log = (...args) => {
-            logs.push(args.map((a) => String(a)).join(" "));
-            orig.apply(console, args);
-          };
-          new Function(code)();
-          console.log = orig;
-          outputBox.textContent = logs.join("\n") || "Finished (no console output).";
-        } catch (e) {
-          outputBox.textContent = "Error: " + e.message;
-        }
-      } else {
-        outputBox.textContent = "Running on server...";
-        try {
-          const res = await fetch("https://runx-backend.onrender.com/run/" + currentLang, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code }),
-          });
-
-          const ct = res.headers.get("content-type") || "";
-          let data;
-          if (ct.includes("application/json")) data = await res.json();
-          else data = { output: await res.text() };
-          outputBox.textContent = data.output ?? JSON.stringify(data);
-        } catch (err) {
-          outputBox.textContent = "Server error: " + err.message;
-        }
-      }
+  if (historyBtn && historyDropdown && historyList) {
+    historyBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      historyDropdown.classList.toggle("hidden");
+      updateHistoryUI();
     });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".history-container"))
+        historyDropdown.classList.add("hidden");
+    });
+  }
+
+  if (runBtn)
+  runBtn.addEventListener("click", async () => {
+    const code = codeArea.value.trim();
+    if (!code) {
+      outputBox.textContent = "Write code first";
+      return;
+    }
+
+    // 🚫 Block PHP & Ruby for hosted version
+    if (currentLang === "php" || currentLang === "ruby") {
+      outputBox.textContent = "❌ PHP and Ruby are not supported in hosted version.";
+      return;
+    }
+
+    const preview = code.split("\n")[0].slice(0, 40) || "(no title)";
+    runHistory.unshift({
+      lang: currentLang,
+      preview,
+      time: new Date().toLocaleTimeString(),
+    });
+    if (runHistory.length > 5) runHistory.length = 5;
+    localStorage.setItem("run_history", JSON.stringify(runHistory));
+    updateHistoryUI();
+
+    if (localStorage.getItem("rz_auto_save") === "1") saveCurrentCode();
+
+    if (currentLang === "js") {
+      try {
+        const logs = [];
+        const orig = console.log;
+        console.log = (...args) => {
+          logs.push(args.map((a) => String(a)).join(" "));
+          orig.apply(console, args);
+        };
+        new Function(code)();
+        console.log = orig;
+        outputBox.textContent =
+          logs.join("\n") || "Finished (no console output).";
+      } catch (e) {
+        outputBox.textContent = "Error: " + e.message;
+      }
+    } else {
+      outputBox.textContent = "Running on server...";
+      try {
+        const res = await fetch("https://runx-backend.onrender.com/run/" + currentLang, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code }),
+        });
+
+        const ct = res.headers.get("content-type") || "";
+        let data;
+        if (ct.includes("application/json")) data = await res.json();
+        else data = { output: await res.text() };
+        outputBox.textContent = data.output ?? JSON.stringify(data);
+      } catch (err) {
+        outputBox.textContent = "Server error: " + err.message;
+      }
+    }
+  });
+
 
   if (refreshBtn)
     refreshBtn.addEventListener("click", () => {
