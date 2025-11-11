@@ -1,5 +1,9 @@
 # ⚡ RunX — Online Developer Compiler Platform
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://superb-pie-91b00d.netlify.app)
+
+
+
 <p align="center">
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/Upendra2313845/RunX?style=for-the-badge&color=brightgreen)
@@ -122,6 +126,7 @@ Make sure you have:
 - **Node.js** installed  
 - **GCC Compiler** (for C/C++ execution)
 
+
 ### 📥 Clone & Run
 ```bash
 # 1️⃣ Clone repository
@@ -135,6 +140,23 @@ npm install
 
 # 4️⃣ Start backend server
 node backend/server.js
+
+
+
+---
+
+## 🌍 Live Project Links
+
+🔹 **Frontend (Netlify)** → [https://superb-pie-91b00d.netlify.app](https://superb-pie-91b00d.netlify.app)  
+🔹 **Backend (Render)** → [https://runx-backend.onrender.com](https://runx-backend.onrender.com)
+
+💡 *Note:* If the backend takes time to respond, it may be waking from Render’s free tier sleep mode.
+
+---
+
+
+
+
 
 ## 🖼️ Project Preview
 ```

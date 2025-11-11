@@ -80,14 +80,6 @@ app.post("/run/:lang", async (req, res) => {
   }
 });
 
-// ✅ Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`✅ RunX backend running on port ${PORT}`);
-});
-
-
-
 
 
 // ✅ Start server
