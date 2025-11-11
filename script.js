@@ -375,11 +375,12 @@ echo "Hello Upendra Singh from PHP!\\n";
       } else {
         outputBox.textContent = "Running on server...";
         try {
-          const res = await fetch("http://localhost:5000/run/" + currentLang, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code }),
+          const res = await fetch("https://runx-backend.onrender.com/run/" + currentLang, {
+           method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code }),
           });
+
           const ct = res.headers.get("content-type") || "";
           let data;
           if (ct.includes("application/json")) data = await res.json();
