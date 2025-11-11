@@ -1,8 +1,5 @@
 # ⚡ RunX — Online Developer Compiler Platform
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://superb-pie-91b00d.netlify.app)
-
-
 
 <p align="center">
 
