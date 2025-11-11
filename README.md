@@ -1,5 +1,8 @@
 # ⚡ RunX — Online Developer Compiler Platform
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://superb-pie-91b00d.netlify.app)
+
+
 
 <p align="center">
 
@@ -150,7 +153,6 @@ node backend/server.js
 💡 *Note:* If the backend takes time to respond, it may be waking from Render’s free tier sleep mode.
 
 ---
-
 
 
 
