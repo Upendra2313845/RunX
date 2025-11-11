@@ -346,11 +346,10 @@ if (runBtn)
       return;
     }
 
-    // 🚫 Block PHP & Ruby for hosted version
-    if (currentLang === "php" || currentLang === "ruby") {
-      outputBox.textContent = "❌ PHP and Ruby are not supported in hosted version.";
-      return;
-    }
+   if (currentLang === "php" || currentLang === "ruby" || currentLang === "java") {
+  outputBox.textContent = "❌ Java is not supported in hosted version (Render environment).";
+  return;
+}
 
     const preview = code.split("\n")[0].slice(0, 40) || "(no title)";
     runHistory.unshift({

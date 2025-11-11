@@ -471,3 +471,22 @@ body.light footer {
 body.fade-transition {
   transition: all 0.6s ease-in-out;
 }
+
+
+
+
+#saveBtn {
+  background: linear-gradient(135deg, #1e40af, #9333ea);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+#saveBtn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}

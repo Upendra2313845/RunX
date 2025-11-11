@@ -1,0 +1,7 @@
+# Ignore compiled and temp files
+backend/temp/
+*.exe
+*.class
+*.pyc
+*.out
+tempCodeRunnerFile.js
