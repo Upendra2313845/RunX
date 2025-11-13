@@ -490,3 +490,210 @@ body.fade-transition {
   transform: scale(1.05);
   background: linear-gradient(135deg, #2563eb, #7c3aed);
 }
+
+
+
+
+/* 📱 MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+  body {
+    overflow: auto; /* allow scrolling on mobile */
+  }
+
+  /* 🔹 Header */
+  header {
+    padding: 0 15px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  .header-controls {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .top-nav {
+    gap: 15px;
+  }
+
+  #languageSelect {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+
+
+  /* 📚 Sidebar — make it horizontal on mobile */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+    position: sticky;
+    top: 60px;
+    border-right: none;
+    border-bottom: 1px solid #30363d;
+    overflow-x: auto;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .sidebar img {
+    width: 45px;
+    height: 50px;
+  }
+
+  /* 🧑‍💻 Compiler Layout → stack vertically */
+  .main-layout {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .compiler-container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .input-section,
+  .output-section {
+    padding: 15px;
+    width: 100%;
+    min-height: 380px; /* Increase height */
+
+  }
+
+  #codeArea {
+    height: 250px; /* fits screen */
+    font-size: 14px;
+    height: 350px !important;
+  }
+
+  /* Buttons */
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  button {
+    flex: 1 1 45%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Output */
+  #outputBox {
+    min-height: 180px;
+    font-size: 14px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+
+/* 📱 SMALL PHONES BELOW 480px */
+@media (max-width: 480px) {
+
+  header {
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .logo h1 {
+    font-size: 16px;
+  }
+
+  .top-nav {
+    gap: 10px;
+  }
+
+  .sidebar img {
+    width: 40px;
+    height: 45px;
+  }
+
+  #codeArea {
+    height: 220px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  #outputBox {
+    min-height: 150px;
+    font-size: 13px;
+  }
+}
+
+
+
+
+.hamburger {
+  background: transparent;
+  border: none;
+  color: #58a6ff;
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+/* 📱 MOBILE SIDEBAR (HAMBUGER MENU) */
+@media (max-width: 768px) {
+
+  /* Show hamburger button only on mobile */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide sidebar initially (slide left) */
+  .sidebar {
+    position: fixed !important;
+    left: -260px;
+    top: 0;
+    height: 100%;
+    width: 260px !important;
+    background: #161b22;
+    z-index: 3000;
+    padding-top: 90px;
+    transition: left 0.3s ease;
+    flex-direction: column;
+    border-right: 1px solid #30363d;
+  }
+
+  /* When active → slide in */
+  .sidebar.active {
+    left: 0 !important;
+  }
+
+  /* Vertical icons layout for mobile sidebar */
+  .sidebar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+}
