@@ -141,22 +141,7 @@ npm install
 # 4️⃣ Start backend server
 node backend/server.js
 
-
-
 ---
-
-
-
-
-
-
-
-
----
-
-
-
-
 
 ## 🖼️ Project Preview
 ```
@@ -193,16 +178,16 @@ node backend/server.js
 
 ## 🌐 Live Demo
 
-🎯 Check out the live version of **RunX — Online Code Compiler**
+## 🌐 Live Demo  
+🎯 Check out the live version of RunX — Online Code Compiler
 
-🔹 **Frontend (Netlify)** → [https://superb-pie-91b00d.netlify.app](https://superb-pie-91b00d.netlify.app)  
-🔹 **Backend (Render)** → [https://runx-backend.onrender.com](https://runx-backend.onrender.com)
+🔹 Frontend (Vercel) → https://run-x-theta.vercel.app  
+🔹 Backend (Render) → https://runx-backend.onrender.com
 
-💡 *Note:*  
-If the backend takes a few seconds to respond, it’s because the Render free server sleeps when idle.  
-Once it wakes up, your compiler will run smoothly for supported languages —  
-**C, C++, Java, Python, and JavaScript**.  
-*(PHP and Ruby are disabled in the hosted version.)*
+💡 Note:  
+If the backend takes a few seconds to respond, it’s because the Render free server sleeps when idle.
+Once it wakes up, your compiler will run smoothly.
+
 
 ---
 
